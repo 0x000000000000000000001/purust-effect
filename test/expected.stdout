@@ -1,0 +1,46 @@
+[OK] pure values, functions and nested effects
+[OK] bind result and continuation order
+[OK] map and apply order
+[OK] discard operators preserve order and result
+[OK] Effect Semigroup and Monoid
+[OK] polymorphic MonadEffect
+[OK] forE inclusive lower/exclusive upper, negative indices
+[OK] forE equal bounds
+[OK] forE inverted bounds
+[OK] foreachE preserves element order
+[OK] foreachE empty array
+[OK] foreachE record elements
+[OK] whileE condition before each body, ignores body result
+[OK] whileE initially false
+[OK] untilE stops at first true condition
+[OK] untilE initially true still evaluates condition once
+[OK] nested loops preserve outer and inner order
+Testing forE
+Testing foreachE
+Testing whileE
+Testing untilE
+All tests passed
+[OK] EffectFn1 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn2 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn3 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn4 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn5 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn6 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn7 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn8 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn9 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn10 intrinsic and foreign adapters, native callbacks and replay
+[OK] EffectFn record, function and nested Effect results
+[OK] unsafePerformEffect returns values and executes once per invocation
+[OK] unsafePerformEffect preserves function and nested Effect values
+[OK] EffectFn1 Semigroup and Monoid
+[OK] EffectFn2 Semigroup and Monoid
+[OK] EffectFn3 Semigroup and Monoid
+[OK] EffectFn4 Semigroup and Monoid
+[OK] EffectFn5 Semigroup and Monoid
+[OK] EffectFn6 Semigroup and Monoid
+[OK] EffectFn7 Semigroup and Monoid
+[OK] EffectFn8 Semigroup and Monoid
+[OK] EffectFn9 Semigroup and Monoid
+[OK] EffectFn10 Semigroup and Monoid
+Effect tests passed

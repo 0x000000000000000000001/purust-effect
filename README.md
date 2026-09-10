@@ -14,6 +14,40 @@ spago install effect
 
 ## Documentation
 
+### Rust tests
+
+Run `bin/test -c` from this package. The Bash runner rebuilds the sibling
+`purust` compiler, clears this package's caches, generates fresh TAST and Rust,
+then compiles and runs the tests with Cargo. `bin/test` skips the compiler
+rebuild but still regenerates the test output. The sibling TAST-enabled
+PureScript fork is selected automatically; `PURS=/path/to/purs` overrides it.
+
+Both builds use Spago installed in the sibling compiler's `node_modules`
+by `npm install`, so an older global or ancestor installation cannot take over.
+
+The suite covers `Effect` and `Effect.Class`: 17 checks verify `pure`, `bind`,
+mapping and application, sequencing, Semigroup/Monoid instances, polymorphic
+`liftEffect`, and all four loops, including empty ranges, record elements,
+condition order and nested loops. Each check verifies that construction has
+no effects, then executes the same action twice and checks its trace and
+result. Three separate processes verify that failures stop bind continuations
+and subsequent `forE` iterations.
+
+In addition, `Test.RefIntegration` retains the complete four-test suite from
+`gopurs-effect`, with the same bodies and assertions: `forE`, `foreachE`,
+`whileE` and `untilE` create, update and read real `Effect.Ref` values from
+the sibling `purust-refs` package. The original 17 checks keep their test-only
+Rust probe so they can also verify exact traces and action replay.
+
+`Test.Adapters` adds 23 checks, also replayed twice. All ten `EffectFn`
+arities exercise captured values, argument order, native Rust callbacks,
+first-class makers and runners, and their Semigroup/Monoid instances.
+The checks also cover record, function and nested `Effect` return values,
+plus `unsafePerformEffect`. Opaque FFI boundaries ensure that the suite
+exercises both optimizer intrinsics and the Rust adapter implementations.
+
+### API
+
 Values in PureScript do not have side-effects by default. This package provides
 the standard type PureScript uses to handle "native" effects, i.e. effects
 which are provided by the runtime system, and which cannot be emulated by pure
